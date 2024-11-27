@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RBAC System - User and Role Management
 
-## Getting Started
+This project is a **Role-Based Access Control (RBAC)** system built with **Next.js** using the App Router. It implements security-focused features and simulates real-world user and role management scenarios.
 
-First, run the development server:
+## Table of Contents
+- [Features](#features)
+  - [User Management](#user-management)
+  - [Role Management](#role-management)
+  - [API Simulation](#api-simulation)
+  - [Type Definitions](#type-definitions)
+- [Security Features](#security-features)
+  - [Password Security](#password-security)
+  - [Two-Factor Authentication](#two-factor-authentication)
+  - [Authentication](#authentication)
+  - [Access Control](#access-control)
+  - [Input Validation](#input-validation)
+  - [Audit Trail](#audit-trail)
+  - [Rate Limiting](#rate-limiting)
+- [UI and Responsiveness](#ui-and-responsiveness)
+- [Error Handling](#error-handling)
+- [State Management](#state-management)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### User Management
+- User listing with pagination.
+- Search and filtering.
+- Adding, editing, and deleting users.
+- Assigning roles and toggling statuses (Active/Inactive).
+- Security:
+  - Password hashing.
+  - Two-factor authentication toggle.
+  - Input validation for email and password.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Role Management
+- Role listing with pagination.
+- Role search and filtering.
+- Adding, editing, and deleting roles.
+- Permission management.
+- Security:
+  - Granular permission control.
+  - Color-coded roles for better identification.
 
-## Learn More
+### API Simulation
+- Simulates backend API calls and includes:
+  - User CRUD operations.
+  - Role CRUD operations.
+  - Authentication simulation.
+  - Password hashing (using `bcrypt`).
+  - JWT-based authentication.
+  - Login attempt tracking and rate limiting.
 
-To learn more about Next.js, take a look at the following resources:
+### Type Definitions
+- TypeScript types for:
+  - Users, Roles, Permissions.
+  - Paginated responses.
+  - Authentication-related data like login attempts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Security Features
 
-## Deploy on Vercel
+### Password Security
+- Passwords are hashed using `bcrypt`.
+- Never return passwords in API responses.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Two-Factor Authentication
+- Toggle 2FA per user for enhanced security.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Authentication
+- JWT-based system with 1-hour expiration.
+
+### Access Control
+- Comprehensive role-based access control (RBAC).
+- Granular permission management per role.
+
+### Input Validation
+- Client-side and server-side (simulated) validation for key inputs.
+
+### Audit Trail
+- Tracks:
+  - Last login time.
+  - Last password change time.
+
+### Rate Limiting
+- Prevent brute-force login attempts.
+
+### Secure Communication
+- Assumes HTTPS in production environments.
+
+---
+
+## UI and Responsiveness
+
+- **shadcn/ui** components:
+  - Buttons, Inputs, Tables, Dialogs, Dropdowns, Switches, Badges.
+- **Responsive Design**:
+  - Flexbox and Grid for layouts.
+  - Adaptive table design with hidden columns for smaller screens.
+
+---
+
+## Error Handling
+- Toast notifications for success and error messages.
+
+---
+
+## State Management
+- Managed using React's `useState` and `useEffect`.
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shauryaa19/vrv-assignment.git
+
+2. Navigate to the project directory:
+    ```bash
+    cd rbac-system
+
+3.  Install dependencies:
+    ```bash
+    npm install
+
+4. Start the development server:
+    ```bash
+    npm run dev
+
+
+The app will be available at http://localhost:3000.
+
